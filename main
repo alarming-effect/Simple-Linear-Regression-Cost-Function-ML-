@@ -1,0 +1,16 @@
+function costFunctionJ(trainingSet, theta1, theta2)
+{  const m = trainingSet.length;
+    let sumOfSquaredErrors = 0;
+
+    for (const [x, y] of trainingSet) {
+        const h_x = theta1 + theta2 * x;
+        const error = h_x - y;
+ // accumulate squared error
+        sumOfSquaredErrors += error * error;
+    }
+
+// compute cost
+    const J = (1 / (2 * m)) * sumOfSquaredErrors;
+  return Math.round(J * 1000) / 1000;
+  
+}
